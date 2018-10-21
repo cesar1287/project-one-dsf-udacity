@@ -183,10 +183,20 @@ plt.show(block=True)
 input("Aperte Enter para continuar...")
 # TAREFA 8
 # TODO: Responda a seguinte questão
+def count_non_male_female(gender_list):
+    non_male_female = []
+    for gender in gender_list:
+        if gender != "Male" and gender != "Female":
+            non_male_female.append(gender)
+
+    return non_male_female
+
 male, female = count_gender(data_list)
 print("\nTAREFA 8: Por que a condição a seguir é Falsa?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Escreva sua resposta aqui."
+gender_list = column_to_list(data_list, -2)
+count = len(count_non_male_female(gender_list))
+answer = "Porque existem {} campo(s) que não são nem masculinos e nem femininos".format(count)
 print("resposta:", answer)
 
 # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
