@@ -196,7 +196,7 @@ print("\nTAREFA 8: Por que a condição a seguir é Falsa?")
 print("male + female == len(data_list):", male + female == len(data_list))
 gender_list = column_to_list(data_list, -2)
 count = len(count_non_male_female(gender_list))
-answer = "Porque existem {} campo(s) que não são nem masculinos e nem femininos".format(count)
+answer = "Porque existem {} registro(s) que não são nem masculinos e nem femininos".format(count)
 print("resposta:", answer)
 
 # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
@@ -209,10 +209,34 @@ input("Aperte Enter para continuar...")
 # TODO: Ache a duração de viagem Mínima, Máxima, Média, e Mediana.
 # Você não deve usar funções prontas para isso, como max() e min().
 trip_duration_list = column_to_list(data_list, 2)
-min_trip = 0.
-max_trip = 0.
-mean_trip = 0.
-median_trip = 0.
+
+def get_statistics(trip_duration_list):
+    min = int(trip_duration_list[0])
+    max = 0
+    count_mean = 0
+    median_list = []
+    for trip_duration in trip_duration_list:
+        if int(trip_duration) < min:
+            min = int(trip_duration)
+        if int(trip_duration) > max:
+            max = int(trip_duration)
+
+        count_mean += int(trip_duration)
+        median_list.append(int(trip_duration))
+        
+    mean = count_mean / len(trip_duration_list)
+    median_list.sort()
+
+    median_index = len(median_list) // 2
+    median = 0
+    if median_index % 2 == 0:
+        median = (median_list[median_index] + median_list[median_index + 1]) / 2
+    else:
+        median = median_list[median_index]
+    
+    return min, max, mean, median
+
+min_trip, max_trip, mean_trip, median_trip = get_statistics(trip_duration_list)
 
 
 print("\nTAREFA 9: Imprimindo o mínimo, máximo, média, e mediana")
