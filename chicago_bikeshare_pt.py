@@ -52,6 +52,15 @@ input("Aperte Enter para continuar...")
 # TAREFA 3
 # TODO: Crie uma função para adicionar as colunas(features) de uma lista em outra lista, na mesma ordem
 def column_to_list(data, index):
+    """Pega uma coluna do data_list e transforma em lista.
+
+    INPUT:
+    date: list. O dado em si, transformado em lista
+    index: int. O index da coluna que você quer transforma em lista
+
+    OUTPUT: 
+    column_list: list. A lista da coluna selecionada
+    """
     column_list = []
     # Dica: Você pode usar um for para iterar sobre as amostras, pegar a feature pelo seu índice, e dar append para uma lista
     for item in data:
@@ -95,6 +104,14 @@ input("Aperte Enter para continuar...")
 # TODO: Crie uma função para contar os gêneros. Retorne uma lista.
 # Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10, 15] significa 10 Masculinos, 15 Femininos)
 def count_gender(data_list):
+    """Conta a quantidade de cada gênero(Masculino ou Fenimino) da base de dados entrada.
+
+    INPUT:
+    data_list: list. O dado em si para contagem dos gêneros.
+
+    OUTPUT: 
+    gender_list: list. A lista com a quantidade de gênero em cada índice.
+    """
     male = 0
     female = 0
     for data in data_list:
@@ -121,6 +138,14 @@ input("Aperte Enter para continuar...")
 # TODO: Crie uma função que pegue o gênero mais popular, e retorne este gênero como uma string.
 # Esperamos ver "Male", "Female", ou "Equal" como resposta.
 def most_popular_gender(data_list):
+    """Calcula o gênero mais popular dado uma lista.
+
+    INPUT:
+    data_list: list. O dado em si para contagem dos gêneros.
+
+    OUTPUT: 
+    answer: str. Uma string com o gêmero mais popular.
+    """
     genders = count_gender(data_list)
     male = genders[0]
     female = genders[1]
@@ -159,6 +184,14 @@ input("Aperte Enter para continuar...")
 # TODO: Crie um gráfico similar para user_types. Tenha certeza que a legenda está correta.
 print("\nTAREFA 7: Verifique o gráfico!")
 def count_user_type(data_list):
+    """Conta os tipos de usuário dada uma lista de dados.
+
+    INPUT:
+    data_list: list. O dado em si para contagem dos tipos de usuário.
+
+    OUTPUT: 
+    user_type_list: list. Uma lista com a quantidade de cada tipo de usuário em cada índice.
+    """
     customer = 0
     subscriber = 0
     for data in data_list:
@@ -184,6 +217,14 @@ input("Aperte Enter para continuar...")
 # TAREFA 8
 # TODO: Responda a seguinte questão
 def count_non_male_female(gender_list):
+    """Conta a quantidade de usuários que não são nem masculinos e nem femininos.
+
+    INPUT:
+    gender_list: list. O dado em si para a contagem dos não masculinos e femininos.
+
+    OUTPUT: 
+    non_male_female: int. Quantidade de usuários que não são nem masculinos e nem femininos.
+    """
     non_male_female = []
     for gender in gender_list:
         if gender != "Male" and gender != "Female":
@@ -211,6 +252,17 @@ input("Aperte Enter para continuar...")
 trip_duration_list = column_to_list(data_list, 2)
 
 def get_statistics(trip_duration_list):
+    """Retorna a estatística com o tempo máximo, mínimo, médio e a mediana das viagens.
+
+    INPUT:
+    trip_duration_list: list. Lista com a duração das viagens
+
+    OUTPUT: 
+    min: int. Menor tempo de uma viagem.
+    max: int. Maior tempo de uma viagem.
+    mean: int. Média das viagens.
+    median: int. Mediana das viagens.
+    """
     min = int(trip_duration_list[0])
     max = 0
     count_mean = 0
