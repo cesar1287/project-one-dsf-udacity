@@ -32,8 +32,8 @@ input("Aperte Enter para continuar...")
 # TAREFA 1
 # TODO: Imprima as primeiras 20 linhas usando um loop para identificar os dados.
 print("\n\nTAREFA 1: Imprimindo as primeiras 20 amostras")
-for x in range(0, 20):
-    print("Linha {}:\n{}".format(x + 1, data_list[x]))
+for row in range(0, 20):
+    print("Linha {}:\n{}".format(row + 1, data_list[row]))
 
 # Nós podemos acessar as features pelo índice
 # Por exemplo: sample[6] para imprimir gênero, ou sample[-2]
