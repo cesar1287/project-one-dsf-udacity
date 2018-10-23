@@ -2,6 +2,7 @@
 
 # Começando com os imports
 import csv
+import collections
 import matplotlib.pyplot as plt
 
 # Vamos ler os dados como uma lista
@@ -334,11 +335,24 @@ input("Aperte Enter para continuar...")
 # TODO: Crie uma função para contar tipos de usuários, sem definir os tipos
 # para que nós possamos usar essa função com outra categoria de dados.
 print("Você vai encarar o desafio? (yes ou no)")
-answer = "no"
+answer = "yes"
 
 def count_items(column_list):
+    """Retorna duas listas com os valores de uma coluna em uma lista e a quantidade das mesmas em outra.
+
+    INPUT:
+    column_list: list. Lista da coluna para contagem
+
+    OUTPUT: 
+    item_types: list. Lista de itens da coluna
+    count_items: list. Quantidade para cada item da coluna.
+    """
     item_types = []
     count_items = []
+
+    item_types = list(set(column_list))
+    count = collections.Counter(column_list)
+    count_items = count.values()
     return item_types, count_items
 
 
